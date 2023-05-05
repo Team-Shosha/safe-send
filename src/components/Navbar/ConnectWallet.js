@@ -5,6 +5,7 @@ export default function ConnectWallet(props) {
       className={
         props.address ? styles.x7575788Wrapper : styles.connectWalletWrapper
       }
+      onClick={props.clickHandler}
     >
       {!props.address && (
         <div className={styles.connectWallet}>Connect wallet</div>
