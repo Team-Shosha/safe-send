@@ -1,0 +1,206 @@
+.component1Icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1440px;
+  height: 829px;
+  overflow: hidden;
+}
+.x7575788 {
+  position: relative;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: Inter;
+  color: #fff;
+  text-align: center;
+}
+.x7575788Wrapper {
+  cursor: pointer;
+  border: 1.2px solid #fff;
+  padding: 10px;
+  background-color: transparent;
+  position: absolute;
+  top: 22.8px;
+  left: 1188.8px;
+  border-radius: 5px;
+  box-sizing: border-box;
+  width: 152.4px;
+  height: 40.4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.image1Icon {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 110px;
+  height: 107.8px;
+  object-fit: cover;
+}
+.home {
+  position: relative;
+}
+.homeParent {
+  position: absolute;
+  top: 19px;
+  left: calc(50% - 158.8px);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 100px;
+}
+.frameChild {
+  top: 49px;
+  left: 328px;
+  border-radius: 10px;
+  background-color: #fff;
+  width: 80px;
+  height: 6px;
+}
+.b,
+.frameChild,
+.groupChild {
+  position: absolute;
+}
+.groupChild {
+  top: calc(50% - 13px);
+  left: 0;
+  width: 26px;
+  height: 26px;
+}
+.b {
+  top: 6.07px;
+  left: 8.67px;
+  display: inline-block;
+  width: 8.67px;
+  height: 14.73px;
+}
+.ellipseParent {
+  position: absolute;
+  top: calc(50% - 13.3px);
+  left: 391px;
+  width: 26px;
+  height: 26px;
+  color: #000;
+}
+.frameParent,
+.groupItem {
+  position: absolute;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+.frameParent {
+  top: 26.7px;
+  left: calc(50% - 228.3px);
+  background-color: #294d52;
+  border: 0.3px solid #fff;
+  width: 456.6px;
+  height: 54.6px;
+  overflow: hidden;
+}
+.groupItem {
+  top: -1px;
+  left: -1px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  width: 484px;
+  height: 132px;
+}
+.notification,
+.youHaveReceived {
+  position: absolute;
+  top: 14px;
+  left: 15.25px;
+  font-weight: 800;
+  display: inline-block;
+  width: 83.38px;
+}
+.youHaveReceived {
+  top: 46px;
+  left: 16.27px;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(18, 18, 18, 0.8);
+  text-align: left;
+  width: 461.66px;
+}
+.groupInner,
+.rectangleButton {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: #011a1e;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 7.5px;
+  width: 103.21px;
+  height: 39.4px;
+}
+.rectangleButton {
+  border: 0.8px solid #011a1e;
+  background-color: #fff;
+  top: -0.15px;
+  left: 129.41px;
+  box-sizing: border-box;
+  width: 104.71px;
+  height: 40.9px;
+}
+.claim1,
+.reject {
+  position: absolute;
+  display: inline-block;
+  height: 14px;
+}
+.claim1 {
+  top: 13px;
+  left: 29.49px;
+  width: 44.74px;
+}
+.reject {
+  top: calc(50% - 7px);
+  left: 159.65px;
+  color: #000;
+  width: 45.76px;
+}
+.rectangleGroup {
+  position: absolute;
+  top: 79px;
+  left: 124.06px;
+  width: 233.37px;
+  height: 40px;
+  font-size: 15px;
+  color: #fff;
+  font-family: Lato;
+}
+.rectangleParent {
+  position: relative;
+  width: 482px;
+  height: 130px;
+  flex-shrink: 0;
+}
+.groupParent {
+  position: absolute;
+  top: 169px;
+  left: calc(50% - 241px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 24px;
+  color: #172e31;
+}
+.welcome {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 829px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 14px;
+  color: #fff;
+  font-family: Inter;
+}
