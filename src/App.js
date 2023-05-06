@@ -4,9 +4,9 @@ import {
   useNavigationType,
   useLocation,
 } from "react-router-dom";
-import Welcome from "./pages/Welcome";
-import Welcome1 from "./pages/Welcome1";
-import Welcome2 from "./pages/Welcome2";
+import Claim from "./pages/Claim";
+import Send from "./pages/Send";
+import Home from "./pages/Home";
 import { useEffect } from "react";
 
 function App() {
@@ -29,11 +29,11 @@ function App() {
         title = "";
         metaDescription = "";
         break;
-      case "/welcome":
+      case "/claim":
         title = "";
         metaDescription = "";
         break;
-      case "/welcome1":
+      case "/send":
         title = "";
         metaDescription = "";
         break;
@@ -55,9 +55,9 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<Welcome />} />
-      <Route path="/welcome" element={<Welcome1 />} />
-      <Route path="/welcome1" element={<Welcome2 />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/send" element={<Send />} />
+      <Route path="/claim" element={<Claim />} />
     </Routes>
   );
 }

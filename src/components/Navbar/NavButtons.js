@@ -14,6 +14,9 @@ export default function NavButtons(props) {
         </div>
         <div className={styles.home}>
           <b className={props.active === 3 ? styles.active : ""}>Claim</b>
+          <span className={props.notifAmount ? styles.badge : ""}>
+            {props.notifAmount}
+          </span>
           <div className={styles.frameChild} />
         </div>
       </div>
