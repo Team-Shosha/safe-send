@@ -1,10 +1,18 @@
+import { useCallback } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Button from "../components/UI/Button";
 import Card from "../components/UI/Card";
 import Input from "../components/UI/Input";
 import styles from "./Home.module.css";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  const onGetStartedClick = useCallback(() => {
+    Navigate("/send");
+  }, [navigate]);
+
   return (
     <>
       <Navbar active={1} />
@@ -18,7 +26,10 @@ const Home = () => {
             our easy-to-use DApp
           </p>
 
-          <button className={styles.getStartedWrapper}>
+          <button
+            className={styles.getStartedWrapper}
+            onClick={onGetStartedClick}
+          >
             <div className={styles.getStarted}>Get started</div>
           </button>
         </div>

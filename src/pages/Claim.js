@@ -6,7 +6,7 @@ const Claim = () => {
   return (
     <>
       <Navbar active={3} address="0X7575788..." notifAmount={3} />
-      <div class={styles.notifications}>
+      <div className={styles.notifications}>
         <Card cardHeader="Notification">
           <p className={styles.youHaveReceived}>
             You have received 0.02 ETH from 0X758758y784788....
