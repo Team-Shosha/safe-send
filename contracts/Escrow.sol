@@ -5,8 +5,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
-//contract address 0xC5A0e546F944783a0c3dc3b6bbd706be209542c0
-
+//address 0x5Ad0Ef3392188a156091b63EE1aCdbF9Fcb9817c
 contract Escrow is Ownable {
     using Address for address payable;
 
@@ -18,7 +17,7 @@ contract Escrow is Ownable {
         uint256 amount;
         address sender;
         address receiver;
-        address token;
+        // address token;
         uint256 timestamp;
         bool cancelled;
     }
@@ -36,13 +35,9 @@ contract Escrow is Ownable {
         feeMultiplier = _feeMultiplier;
     }
 
-    function createPayment(
-        address receiver,
-        address token,
-        uint256 amount
-    ) external payable {
+    function createPayment(address receiver) external payable {
         require(receiver != address(0), "Invalid receiver address");
-        require(amount > 0, "Amount must be greater than zero");
+        require(msg.value > 0, "Amount must be greater than zero");
 
         if (msg.value == 0) {
             require(
@@ -54,10 +49,10 @@ contract Escrow is Ownable {
         uint256 newPaymentId = paymentIds.length;
         Payment storage payment = payments[newPaymentId];
         payment.id = newPaymentId;
-        payment.amount = amount;
+        payment.amount = msg.value;
         payment.sender = msg.sender;
         payment.receiver = receiver;
-        payment.token = token;
+        // payment.token = token;
         payment.timestamp = block.timestamp;
         payment.cancelled = false;
 
