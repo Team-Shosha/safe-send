@@ -7,12 +7,6 @@ const Send = () => {
     <>
       <Navbar active={2} address="0X7575788..." />
       <form className={styles.sendForm}>
-        <Card cardHeader="Transaction" otherClass={styles.move}>
-          <Input label="Amount" input={{ id: "amount" }} isBlue />
-        </Card>
-        <Card cardHeader="Notification time" otherClass={styles.move}>
-          <Input label="Timing" input={{ id: "timing" }} isBlue />
-        </Card>
         <Card cardHeader="Send Crypto" otherClass={styles.moveLeft}>
           <Input
             label="Recipient wallet"
@@ -20,6 +14,17 @@ const Send = () => {
             isBlue
           />
         </Card>
+        <Card cardHeader="Transaction" otherClass={styles.move}>
+          <Input
+            label="Amount"
+            input={{ id: "amount", type: "number" }}
+            isBlue
+          />
+        </Card>
+        <Card cardHeader="Receivers email" otherClass={styles.move}>
+          <Input label="Email" input={{ id: "email", type: "email" }} isBlue />
+        </Card>
+
         <div className={styles.sendBtnWrapper}>
           <button className={styles.sendBtn}>Send</button>
         </div>
