@@ -4,6 +4,8 @@ import Card from "../components/UI/Card";
 import Input from "../components/UI/Input";
 import styles from "./Send.module.css";
 import AuthContext from "../context/auth-context";
+import sendEmail from "../utils/emailService";
+
 const Send = () => {
   const ctx = useContext(AuthContext);
 
@@ -16,6 +18,12 @@ const Send = () => {
     const sendTx = await ctx.sendCrypto(address, amount);
     if (sendTx) {
       console.log("sent to escrow");
+      await sendEmail(
+        email,
+        "SAFE_SEND",
+        `You have received ${amount} from ${ctx.account}, head over to safe send and connect your wallet to claim it`
+      );
+      console.log("Email sent successfully");
     } else {
       console.log("failed");
     }
