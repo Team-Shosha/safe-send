@@ -4,7 +4,7 @@ import Card from "../components/UI/Card";
 import Input from "../components/UI/Input";
 import styles from "./Send.module.css";
 import AuthContext from "../context/auth-context";
-import sendEmail from "../utils/emailService";
+import emailjs from "../utils/emailJsConfig";
 
 const Send = () => {
   const ctx = useContext(AuthContext);
@@ -18,12 +18,19 @@ const Send = () => {
     const sendTx = await ctx.sendCrypto(address, amount);
     if (sendTx) {
       console.log("sent to escrow");
-      await sendEmail(
-        email,
-        "SAFE_SEND",
-        `You have received ${amount} from ${ctx.account}, head over to safe send and connect your wallet to claim it`
-      );
-      console.log("Email sent successfully");
+      emailjs
+        .send("service_psyg6bc", "template_gc65ykh", {
+          to_email: email,
+          from_name: "safe-send",
+          message: `You have received ${amount} matic in your safe-send wallet from ${ctx.account},
+           Head over to safe-send dapp to claim it`,
+        })
+        .then((response) => {
+          console.log("Email sent successfully!", response);
+        })
+        .catch((error) => {
+          console.error("Error sending email:", error);
+        });
     } else {
       console.log("failed");
     }

@@ -38,7 +38,7 @@ export const AuthContextProvider = (props) => {
 
         await sendTxn.wait();
 
-        console.log("mined ", coffeeTxn.hash);
+        console.log("mined ", sendTxn.hash);
 
         console.log("Transaction sent!");
         return true;
