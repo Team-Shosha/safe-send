@@ -1,10 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import Navbar from "../components/Navbar/Navbar";
 import Button from "../components/UI/Button";
 import Card from "../components/UI/Card";
 import Input from "../components/UI/Input";
 import styles from "./Home.module.css";
 import { Navigate, useNavigate } from "react-router-dom";
+import AuthContext from "../context/auth-context";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -13,10 +14,12 @@ const Home = () => {
     Navigate("/send");
   }, [navigate]);
 
+  const ctx = useContext(AuthContext);
+
   return (
     <>
       <Navbar active={1} />
-      <DefaultHome clickHandler={onGetStartedClick} />
+      {!ctx.isConnected && <DefaultHome clickHandler={onGetStartedClick} />}
     </>
   );
 };
