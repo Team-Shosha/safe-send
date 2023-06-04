@@ -43,8 +43,8 @@ const Send = () => {
       <form className={styles.sendForm} onSubmit={submitHandler}>
         <Card cardHeader="Send Crypto" otherClass={styles.moveLeft}>
           <Input
-            label="Recipient wallet"
-            input={{ id: "recipientWallet" }}
+            label="Soul Name"
+            input={{ id: "soulName" }}
             onChange={(e) => {
               setAddress(e.target.value);
             }}
@@ -61,10 +61,10 @@ const Send = () => {
             isBlue
           />
         </Card>
-        <Card cardHeader="Receivers email" otherClass={styles.move}>
+        <Card cardHeader="Notification time" otherClass={styles.move}>
           <Input
-            label="Email"
-            input={{ id: "email", type: "email" }}
+            label="Timing"
+            input={{ id: "timing", type: "number" }}
             onChange={(e) => {
               setEmail(e.target.value);
             }}
