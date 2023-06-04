@@ -9,6 +9,7 @@ const AuthContext = React.createContext({
   // onLogout: () => {},
   connectWallet: () => {},
   sendCrypto: (addr, amount) => {},
+  fetchPaymentDetails: (_payId) => {},
 });
 
 export const AuthContextProvider = (props) => {
@@ -36,12 +37,47 @@ export const AuthContextProvider = (props) => {
           value: ethers.parseEther(amt),
         });
 
-        await sendTxn.wait();
+        console.log("Transaction sent! Waiting for confirmation...", sendTxn);
 
-        console.log("mined ", sendTxn.hash);
+        const receipt = await sendTxn.wait();
 
-        console.log("Transaction sent!");
-        return true;
+        console.log("Transaction confirmed! Transaction hash:", sendTxn.hash);
+
+        console.log("Listening to events...", receipt);
+        let paymentId;
+        const paymentCreatedEvents = receipt.events.filter(
+          (event) => event.event === "PaymentCreated"
+        );
+
+        if (paymentCreatedEvents.length > 0) {
+          console.log("PaymentCreated event emitted!");
+          console.log("Event details:", paymentCreatedEvents[0].args);
+          paymentId = paymentCreatedEvents[0].args;
+        }
+
+        return paymentId.toString();
+      }
+    } else {
+      connectWallet();
+      return false;
+    }
+  }
+  async function fetchPaymentDetails(_payId) {
+    if (account) {
+      if (ethereum) {
+        const provider = new ethers.BrowserProvider(ethereum, "any", {
+          chainId: 80001, // Mumbai testnet chain ID
+          name: "Mumbai Testnet",
+          // Add other necessary network configurations if required
+        });
+        const signer = await provider.getSigner();
+        console.log("signer is _____", signer);
+        const escrow = new ethers.Contract(contractAddress, abi, signer);
+
+        console.log("fetching payment details ");
+        const fetchTxn = await escrow.payments(_payId);
+
+        console.log("fetched payment details__--", fetchTxn);
       }
     } else {
       connectWallet();
@@ -102,6 +138,7 @@ export const AuthContextProvider = (props) => {
         account: account,
         connectWallet: connectWalletHandler,
         sendCrypto: sendCrypto,
+        fetchPaymentDetails: fetchPaymentDetails,
       }}
     >
       {props.children}
