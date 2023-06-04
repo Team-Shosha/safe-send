@@ -18,12 +18,13 @@ const Send = () => {
     const sendTx = await ctx.sendCrypto(address, amount);
     if (sendTx) {
       console.log("sent to escrow");
+      alert("Payment successful , note the payment id is ", sendTx);
       emailjs
         .send("service_psyg6bc", "template_gc65ykh", {
           to_email: email,
           from_name: "safe-send",
           message: `You have received ${amount} matic in your safe-send wallet from ${ctx.account},
-           Head over to safe-send dapp to claim it`,
+           Head over to safe-send dapp to claim it, the payment Id is ${sendTx}, input this to claim`,
         })
         .then((response) => {
           console.log("Email sent successfully!", response);
